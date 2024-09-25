@@ -114,7 +114,7 @@ if __name__ == "__main__":
 
     # List of channels to scrape
     channels_to_scrape = [
-        '@Leyueqa',
+        '@helloomarketethiopia',
         # Add more channels as needed
     ]
 
