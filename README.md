@@ -8,10 +8,15 @@ This project focuses on building a real-time data ingestion and entity extractio
 The repository is organized into the following directories:
 
 .`github/workflows`: Contains GitHub workflow configurations for continuous integration.
+
 .`vscode`: Configuration files for the Visual Studio Code editor.
+
 `fonts`: Contains files related to analyzing the most common Amharic words in telegram e-commerce messages.
+
 `notebooks`: Jupyter notebooks that were used for data exploration, preprocessing, and labeling tasks.
+
 `scripts`: Python scripts used for data scraping, preprocessing, and implementing the NER labeling logic.
+
 `tests`: Contains test cases for different parts of the project.
 
 ## Installation Instructions
