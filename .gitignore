@@ -1,6 +1,5 @@
 ### AL ###
 # Exclude the following files and directories from remote repo
-venv/
 .venv/
 .env
 __pycache__/
@@ -9,6 +8,5 @@ __pycache__/
 Data/
 data/
 data.zip
-MachineLearningRating_v3.txt.dvc
 README.pdf
-sales_model_*.pkl
+scraping_session.session
