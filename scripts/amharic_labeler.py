@@ -26,7 +26,8 @@ class AmharicNERLabeler:
         ]
         self.product_keywords = [
             'ምርት', 'ስቶቭ', 'ማንኪያ', 'የችበስመጥበሻ',
-            'መጥበሻ', 'መጥበሻዎች', 'ምርቶች', 'ባትራ', 'ካርድ'
+            'መጥበሻ', 'መጥበሻዎች', 'ምርቶች', 'ባትራ', 'ካርድ','መፍጫ',
+            'መወልወያ','መደርደሪያ','መስታወት','እንጨት','ሶፋ','ኩርሲ'
         ]
 
     def label_tokens(self, tokens):
@@ -100,12 +101,12 @@ class AmharicNERLabeler:
 
             # Step 8: Check for location entities
             if token_stripped in self.location_list:
-                labels.append('B-LOC')  # Label as B-LOC
+                labels.append('B-LOCATION')  # Label as B-LOC
                 continue
             
             # Step 9: Check for product entities
             if token_stripped in self.product_keywords:
-                labels.append('B-PROD')  # Label as B-PROD
+                labels.append('B-PRODUCT')  # Label as B-PROD
                 continue
 
             # Step 10: Default case for tokens that are not part of any entities
