@@ -19,7 +19,7 @@ class TestAmharicNERLabeler(unittest.TestCase):
             ('ዋጋ', 'B-PRICE'),
             ('4800', 'I-PRICE'),
             ('ብር', 'I-PRICE'),
-            ('ስቶቭ', 'B-PROD')
+            ('ስቶቭ', 'B-PRODUCT')
         ]
         labeled = self.labeler.label_tokens(tokens)
         self.assertEqual(labeled, expected_labels)
@@ -30,10 +30,10 @@ class TestAmharicNERLabeler(unittest.TestCase):
         """
         tokens = ['አዲስ', 'አበባ', 'ቦሌ', 'በረራ']
         expected_labels = [
-            ('አዲስ', 'B-LOC'),
+            ('አዲስ', 'B-LOCATION'),
             ('አበባ', 'O'),
-            ('ቦሌ', 'B-LOC'),
-            ('በረራ', 'B-LOC')
+            ('ቦሌ', 'B-LOCATION'),
+            ('በረራ', 'B-LOCATION')
         ]
         labeled = self.labeler.label_tokens(tokens)
         self.assertEqual(labeled, expected_labels)
@@ -44,7 +44,7 @@ class TestAmharicNERLabeler(unittest.TestCase):
         """
         tokens = ['ስቶቭ', 'ዋጋ', '3000', 'ብር']
         expected_labels = [
-            ('ስቶቭ', 'B-PROD'),
+            ('ስቶቭ', 'B-PRODUCT'),
             ('ዋጋ', 'B-PRICE'),
             ('3000', 'I-PRICE'),
             ('ብር', 'I-PRICE')
@@ -63,8 +63,8 @@ class TestAmharicNERLabeler(unittest.TestCase):
             ]
         })
         expected_output = [
-            [('ዋጋ', 'B-PRICE'), ('4800', 'I-PRICE'), ('ብር', 'I-PRICE'), ('ስቶቭ', 'B-PROD')],
-            [('አዲስ', 'B-LOC'), ('ቦሌ', 'B-LOC'), ('ብር', 'I-PRICE')]
+            [('ዋጋ', 'B-PRICE'), ('4800', 'I-PRICE'), ('ብር', 'I-PRICE'), ('ስቶቭ', 'B-PRODUCT')],
+            [('አዲስ', 'B-LOCATION'), ('ቦሌ', 'B-LOCATION'), ('ብር', 'I-PRICE')]
         ]
 
         labeled_df = self.labeler.label_dataframe(df, 'tokens')
@@ -77,7 +77,7 @@ class TestAmharicNERLabeler(unittest.TestCase):
         df = pd.DataFrame({
             'Labeled': [
                 [('ዋጋ', 'B-PRICE'), ('4800', 'I-PRICE'), ('ብር', 'I-PRICE')],
-                [('አዲስ', 'B-LOC'), ('ቦሌ', 'B-LOC')]
+                [('አዲስ', 'B-LOCATION'), ('ቦሌ', 'B-LOCATION')]
             ]
         })
         file_path = 'test_output.conll'
@@ -90,8 +90,8 @@ class TestAmharicNERLabeler(unittest.TestCase):
 4800 I-PRICE
 ብር I-PRICE
 
-አዲስ B-LOC
-ቦሌ B-LOC
+አዲስ B-LOCATION
+ቦሌ B-LOCATION
 
 """
         self.assertEqual(output, expected_output)
